@@ -82,12 +82,13 @@ angular.module('con4', [])
 
             if (verticalMatches >= 3 || horizontalMatches >= 3 || diagLeft >= 3 || diagRight >= 3) {
                 //You can do better than an alert 
-                alert(cell.color + ' Wins');
+                alert(' Wins');
             }
         }
 
         function getNextCell(cell, direction) {
             console.log(cell);
+            debugger;
             var nextRow = cell.row;
             var nextCol = cell.col;
 
@@ -129,11 +130,15 @@ angular.module('con4', [])
 
         function checkNextCell(cell, matches, direction) {
             console.log(cell);
+            debugger;
             var nextCell = getNextCell(cell, direction);
             if (nextCell != undefined) {
                 if (nextCell.hasToken && nextCell.color === cell.color) {
                     matches++;
+                    console.log(matches); 
                     return checkNextCell(nextCell, matches, direction);
+                }else{
+                    return matches;
                 }
 
             }
